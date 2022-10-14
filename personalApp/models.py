@@ -15,12 +15,14 @@ class Personal(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     is_staffed = models.BooleanField(default=False)
+    
     TITLE = (
         ("Team Lead", "LEAD"),
         ("Mid Lead", "MID"),
         ("Junior", "JUN"),
     )
     title = models.CharField(max_length=50, choices=TITLE)
+    
     GENDER =(
         ("Female", "F"),
         ("Male", "M"),
