@@ -6,18 +6,22 @@ from rest_framework.authtoken.models import Token
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+    
     email = serializers.EmailField(
         required=True,
         validators=[validators.UniqueValidator(queryset=User.objects.all())]
     )
+    
     first_name = serializers.CharField(
         max_length=100,
         required=True
     )
+    
     last_name = serializers.CharField(
         max_length=100,
         required=True
     )
+    
     password = serializers.CharField(
         write_only=True,
         # required=True,
