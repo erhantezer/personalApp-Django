@@ -8,12 +8,14 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
 
 class DepartmentView(generics.ListAPIView):
+    
     serializer_class = DepartmentSerializer
     queryset = Department.objects.all()
     # permission_classes = [IsAuthenticated]
     #! only logged in users can make a get request 👆
 
 class DepartmentPersonalView(generics.ListAPIView):
+    
     serializer_class = DepartmentPersonalSerializer
     queryset = Department.objects.all()
     # permission_classes = [IsAuthenticated]
@@ -25,6 +27,7 @@ class DepartmentPersonalView(generics.ListAPIView):
         #?"name__iexact" method to ignore lowercase or uppercase. This method is used to filter.
 
 class PersonalListCreate(ListCreateAPIView):
+    
     queryset = Personal.objects.all()
     serializer_class=PersonalSerializer
     # permission_classes = [IsAuthenticated]
