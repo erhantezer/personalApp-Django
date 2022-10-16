@@ -74,9 +74,11 @@ class UserSerializer(serializers.ModelSerializer):
             "full_name",
             "is_staff",# frontend kısmında butonların aktif olması için
         )
+        
     def get_full_name(self,obj):
         return f"{obj.first_name.title()} {obj.last_name.upper()}"
 
+# custom token serializer yazmak
 class CustomTokenSerializer(TokenSerializer):
     user = UserSerializer(read_only=True)
 
