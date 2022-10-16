@@ -7,7 +7,7 @@ from rest_framework.authtoken.models import Token
 
 from rest_framework.decorators import api_view
 
-# Create your views here.
+
 class RegisterView(CreateAPIView):
     serializer_class = RegisterSerializer
     queryset = User.objects.all()
